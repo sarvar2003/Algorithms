@@ -39,13 +39,13 @@ def bellmanFord(graph, src):
     graph.print_result(dist)
 
 g = Graph(5)
-# Add nodes
+# Add nodes to graph
 g.addNode("A")
 g.addNode("B")
 g.addNode("C")
 g.addNode("D")
 g.addNode("E")
-#  Add edges
+#  Add edges to graph
 g.addEdge("A", "C", 6)
 g.addEdge("A", "D", 6)
 g.addEdge("B", "A", 3)
