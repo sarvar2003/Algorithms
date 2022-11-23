@@ -1,12 +1,12 @@
 from typing import List
 
-def isSorted(arr : List[int]) -> bool:
-    if len(arr) == 1:
+def isSorted(arr : List[int], index: int) -> bool:
+    if index == len(arr) - 1 :
         return True
     
-    if arr[0] > arr[1]:
+    if arr[index] > arr[index + 1]:
         return False
-    return  isSorted(arr[1:])
+    return  isSorted(arr, index + 1)
 
 
-print(isSorted([10,2,4,6,7,9]))
+print(isSorted([1,2,4,6,7,9], 0))
