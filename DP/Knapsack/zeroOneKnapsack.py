@@ -5,9 +5,9 @@ from typing import List
 
 
 
+
+# Simple recursive approach
 # Time complexity: 2^N
-
-
 def zeroOneKnapsack(weights: List[int], values: List[int], capacity: int, n: int) -> int: # n is the index of the item 
     if n == 0 or capacity == 0:
         return 0
@@ -22,7 +22,7 @@ def zeroOneKnapsack(weights: List[int], values: List[int], capacity: int, n: int
 
 
 
-# Zero one knapsack problem using memoization
+# Memoization approach
 # Time complexity: O(W*N)
 def zeroOneKSMem(weights: List[int], values: List[int], capacity: int, n: int, memo: dict) -> int:
     if capacity == 0 or n == 0:
@@ -40,9 +40,8 @@ def zeroOneKSMem(weights: List[int], values: List[int], capacity: int, n: int, m
     return memo[key]
 
 
-# Zero One Kanpsack problem using Top-Down approach 
-# # Time complexity: O(W*N)
-
+# Top-Down approach 
+# Time complexity: O(W*N)
 def zeroOneKSTopDown(weights: List[int], values: List[int], capacity: int, n: int, DPtable: List[List[int]]) -> int: 
     for i in range(n+1):
         for j in range(capacity+1):
