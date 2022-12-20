@@ -1,11 +1,12 @@
-# Zero  one knapsak basically means that youhave to options in terms of items. You can either take it as a whole or skip it.
-# After that you will proceed with the one which returns the max profit/value. 
+# Zero  one knapsak basically means that youhave to options in terms of items. You can either take it as a whole 
+# or skip it. After that you will proceed with the one which returns the max profit/value. 
 
 from typing import List
 
 
 
 # Time complexity: 2^N
+
 
 def zeroOneKnapsack(weights: List[int], values: List[int], capacity: int, n: int) -> int: # n is the index of the item 
     if n == 0 or capacity == 0:
@@ -38,8 +39,28 @@ def zeroOneKSMem(weights: List[int], values: List[int], capacity: int, n: int, m
     
     return memo[key]
 
+
+# Zero One Kanpsack problem using Top-Down approach 
+# # Time complexity: O(W*N)
+
+def zeroOneKSTopDown(weights: List[int], values: List[int], capacity: int, n: int, DPtable: List[List[int]]) -> int: 
+    for i in range(n+1):
+        for j in range(capacity+1):
+            if i == 0 or j == 0:
+                DPtable[i][j] = 0
+            elif weights[i-1] > j:
+                DPtable[i][j] = DPtable[i-1][j]
+            else:
+                DPtable[i][j] = max(DPtable[i-1][j], values[i-1] + DPtable[i-1][j - weights[i-1]])
+
+    return DPtable[i][j]
+
+
 weights = [2,4,5,8,7,3]
 values = [24,30,15,45,20,34]
 
-print(zeroOneKnapsack(weights, values, 15, 5))
-print(zeroOneKSMem(weights, values, 15, 5, {}))
+dpTable = [[-1]*8 for i in range(7)]
+
+print(zeroOneKnapsack(weights, values, 7, 5))
+print(zeroOneKSMem(weights, values, 7, 5, {}))
+print(zeroOneKSTopDown(weights, values, 7, 6, dpTable))
