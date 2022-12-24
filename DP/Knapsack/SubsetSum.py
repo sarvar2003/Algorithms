@@ -38,4 +38,4 @@ def subsetSum(nums: List[int], target: int) -> bool:
         
     return dp[n][target]
 
-print(subsetSum([1,2,3,4,7,7,8], 17))
+# print(subsetSum([1,2,3,4,7,7,8], 17))
