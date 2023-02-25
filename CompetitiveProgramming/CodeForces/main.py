@@ -1,30 +1,10 @@
-def solve(nine, ten, n):
-   atNine, atTen, cnt = {}, {}, 0
+def solve(arr, maxn):
+   if len(arr) == 0:
+      return maxn
+   a = arr.pop()
+   if  a > maxn:
+      maxn = a
 
-   for i in range(n):
-      atNine[nine[i]] = i
-   
-   for i in range(n):
-      atTen[ten[i]] = i
+   return solve(arr, maxn)
 
-   # print(atNine, atTen)
-
-   for i in range(n-1):
-      if atNine[nine[i]] < atTen[nine[i+1]] and atNine[nine[i]] != atTen[nine[i]]:
-         cnt += 1
-
-   return cnt
-
-
-for _ in range(int(input())):
-   n = int(input())
-   a = list(map(int, input().split()))
-   b = list(map(int, input().split()))
-
-   print(solve(a, b, n) )
-
-"""
-5
-1 4 2 5 3
-1 3 4 2 5
-"""
+print(solve([1,2,3,4,6,67,8,7,56,3,3,4,6,5,3,2,4,6,5,2,2,6,53], -float("inf")))
