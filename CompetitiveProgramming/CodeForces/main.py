@@ -1,10 +1,10 @@
-def solve(arr, maxn):
-   if len(arr) == 0:
-      return maxn
-   a = arr.pop()
-   if  a > maxn:
-      maxn = a
+def main():
+   n = int(input())
+   msg = "I hate"
 
-   return solve(arr, maxn)
+   for i in range(2, n+1):
+      if i % 2 == 1: msg += " that I hate"
+      else: msg += " that I love"
 
-print(solve([1,2,3,4,6,67,8,7,56,3,3,4,6,5,3,2,4,6,5,2,2,6,53], -float("inf")))
+   print(msg, end= " it")
+main()
