@@ -1,0 +1,24 @@
+if x & 1 == 0 -> x is even else odd
+
+~x = -x-1
+
+if x & (1 << k) == 1 -> bin(x) at kth position is 1 else 0
+
+x | (1 << k) sets kth bit to 1
+
+x ^ (1 << k) inverts kth bit
+
+x & ~(1 << k) sets kth bit to 0
+
+x & (x-1) sets last 1 bit to 0
+
+To go through subsets of 1 to n-1
+    for subset in range(1 << n)
+        #process the subset 
+    
+To go through subsets of a set x
+    b = 0
+    while b==(b-x)&x:
+        #process subset b
+
+ 
